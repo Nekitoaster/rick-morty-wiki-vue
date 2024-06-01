@@ -1,24 +1,37 @@
 <script setup>
+// Импорт необходимых модулей и функций
 import axios from "axios";
-import { onBeforeMount, onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 
+// Получение свойств компонента
 const props = defineProps(["character"]);
-const lastSeen = ref({});
 
+// Инициализация реактивной переменной для хранения информации о первом появлении
+const firstSeen = ref({});
+
+// Хук onMounted, вызывается после монтирования компонента
 onMounted(async () => {
   try {
+    // Запрос к API для получения информации о первом появлении персонажа
     const response = await axios.get(props.character.episode[0]);
-    lastSeen.value = response.data;
+    // Обновление значения firstSeen с данными о первом появлении
+    firstSeen.value = response.data;
   } catch (error) {
+    // Обработка ошибки при запросе
     console.log(error);
   }
 });
 </script>
 
 <template>
+  <!-- Комопнент карточки персонажа -->
   <div class="card-item-container">
     <div class="card-item-container__img-container">
-      <img class="img-container__img" :src="character.image" :alt="character.name" />
+      <img
+        class="img-container__img"
+        :src="character.image"
+        :alt="character.name"
+      />
     </div>
     <div class="card-item-container__description-container">
       <h2 class="description-container__name">{{ character.name }}</h2>
@@ -38,7 +51,7 @@ onMounted(async () => {
         {{ character.location.name }}
       </p>
       <p class="description-container__desc-head">First seen in:</p>
-      <p class="description-container__desc-body">{{lastSeen.name}}</p>
+      <p class="description-container__desc-body">{{ firstSeen.name }}</p>
     </div>
   </div>
 </template>

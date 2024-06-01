@@ -133,7 +133,7 @@ header {
   border: 1px solid $lime;
   border-radius: 12px;
   overflow: hidden;
-  height: 220px;
+  height: 240px;
   width: 520px;
 
   .card-item-container__img-container {
@@ -146,6 +146,17 @@ header {
 
   .card-item-container__description-container {
     padding: 7px 12px;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 
     .description-container__name {
       color: $white;
@@ -209,8 +220,10 @@ header {
   -moz-column-gap: 10px;
   column-gap: 10px;
   margin-bottom: 7px;
+  list-style: none;
 }
 .paginate-buttons {
+  overflow: hidden;
   height: 40px;
   width: 40px;
   border-radius: 20px;
@@ -221,6 +234,14 @@ header {
 
   &:hover {
     background-color: $gray;
+  }
+
+  .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
   }
 }
 .active-page {
@@ -243,4 +264,14 @@ header {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+
+.empty-message {
+  margin-top: 10px;
+  color: $lime;
+
+  .empty-message__sad {
+    color: $red;
+    margin-left: 7px;
+  }
 }

@@ -1,11 +1,9 @@
 <script setup>
-import CardsContainer from './components/CardsContainer.vue'
-
-
+import CardsContainer from "./components/CardsContainer.vue";
 </script>
 
 <template>
-    <Header/>
-    <CardsContainer/>
-    <Paginate />
+  <Header />
+  <CardsContainer />
+  <Paginate />
 </template>

@@ -1,5 +1,4 @@
 import "./main.scss";
-import "vue-awesome-paginate/dist/style.css";
 
 import { createApp } from "vue";
 import App from "./App.vue";
@@ -14,6 +13,5 @@ app.use(VueAxios, axios);
 app.provide("axios", app.config.globalProperties.axios);
 app.use(store);
 app.use(globalComponents);
-
 
 app.mount("#app");
