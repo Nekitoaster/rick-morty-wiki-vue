@@ -26,8 +26,6 @@ const charactersData = computed(() => {
 
 // Функция обратного вызова при клике на пагинации
 const clickCallback = (page) => {
-  console.log(page);
-
   store.commit("SET_PAGE_QUERY", page);
 
   // Создание реактивного объекта queryParams с обновленными значениями

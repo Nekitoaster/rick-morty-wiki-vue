@@ -1,15 +1,11 @@
 <script setup>
 // Импорт необходимых модулей и компонентов
-import { ref, reactive, computed } from "vue";
+import { ref, reactive} from "vue";
 import SearchIcon from "../icons/SearchIcon.vue";
 import { useStore } from "vuex";
 
 // Получение доступа к хранилищу Vuex
 const store = useStore();
-
-const charactersData = computed(() => {
-  return store.state.charactersData;
-});
 
 // Объявление реактивных переменных для хранения значений полей формы
 const nameQuery = ref("");
